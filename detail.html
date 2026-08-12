@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>景点详情</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/detail.css">
+  <link rel="stylesheet" href="css/transition.css">
+  <link rel="stylesheet" href="css/falling.css">
+  <link rel="stylesheet" href="css/border.css">
+  <link rel="stylesheet" href="css/ripple.css">
+</head>
+<body>
+
+  <!-- 灵动边框线 -->
+  <div class="page-border">
+    <div class="frame frame-outer"></div>
+    <div class="frame frame-inner"></div>
+    <span class="edge edge-h edge-top"></span>
+    <span class="edge edge-h edge-bottom"></span>
+    <span class="edge edge-v edge-left"></span>
+    <span class="edge edge-v edge-right"></span>
+    <span class="corner-diamond cd-tl"></span>
+    <span class="corner-diamond cd-tr"></span>
+    <span class="corner-diamond cd-bl"></span>
+    <span class="corner-diamond cd-br"></span>
+    <span class="corner-glow cg-tl"></span>
+    <span class="corner-glow cg-tr"></span>
+    <span class="corner-glow cg-bl"></span>
+    <span class="corner-glow cg-br"></span>
+    <span class="comet comet-h ch-1"></span>
+    <span class="comet comet-h ch-2"></span>
+    <span class="comet comet-h ch-3"></span>
+    <span class="comet comet-h ch-4 ch-bottom"></span>
+    <span class="comet comet-v cv-1"></span>
+    <span class="comet comet-v cv-2 cv-right"></span>
+  </div>
+
+  <!-- 页面转场帷幕 -->
+  <div id="page-trans-overlay" class="page-trans-overlay">
+    <div class="trans-curtain left"></div>
+    <div class="trans-curtain right"></div>
+    <div class="trans-glow-line"></div>
+    <div class="trans-seal">
+      <div class="seal-glow"></div>
+      <div class="seal-ring r1"></div>
+      <div class="seal-ring r2"></div>
+      <div class="seal-ring r3"></div>
+      <div class="seal-diamond"></div>
+      <div class="seal-core">✦</div>
+    </div>
+    <div class="trans-sparkles"></div>
+  </div>
+
+  <div id="detail-container" class="detail-container">
+    <div class="detail-header">
+      <a id="detail-back" class="back-btn">← 返回</a>
+    </div>
+
+    <div class="detail-hero">
+      <div id="detail-img" class="detail-hero-img"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <h1 id="detail-title" class="detail-title"></h1>
+        <p id="detail-intro" class="detail-intro"></p>
+      </div>
+    </div>
+
+    <div id="detail-body" class="detail-content"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/detail.js"></script>
+  <script src="js/transition.js"></script>
+  <!-- 装饰特效 -->
+  <script src="js/falling-photos.js"></script>
+  <script src="js/falling-side.js"></script>
+  <script src="js/ripple.js"></script>
+  <!-- 以下为可选增强特效，加载失败不影响核心功能 -->
+  <script>
+    // anime.js 安全加载（用于文字逐字显现）
+    (function () {
+      var s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/4.5.0/anime.umd.min.js';
+      s.onerror = function () { console.warn('anime.js 加载失败，文字特效降级'); };
+      document.head.appendChild(s);
+    })();
+
+    // AOS 安全加载
+    (function () {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/aos@2.3.1/dist/aos.css';
+      document.head.appendChild(link);
+
+      var s = document.createElement('script');
+      s.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+      s.onload = function () {
+        if (typeof AOS !== 'undefined') AOS.init({ once: true });
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

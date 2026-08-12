@@ -1,0 +1,275 @@
+/* ===== 烧烤文化页 ===== */
+
+.bbq-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.bbq-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  pointer-events: none;
+}
+
+.bbq-header .back-btn {
+  pointer-events: auto;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.bbq-header .back-btn:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ---- 封面 ---- */
+.bbq-hero {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(212, 168, 83, 0.28) 0%, transparent 60%),
+    linear-gradient(165deg, #4a1614 0%, #7a2a1e 45%, #b8582a 100%);
+  overflow: hidden;
+}
+
+.bbq-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 70%, rgba(255, 160, 80, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 200, 120, 0.12) 0%, transparent 50%);
+}
+
+.bbq-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 1.5rem;
+}
+
+.bbq-hero-sub {
+  font-size: 0.95rem;
+  letter-spacing: 0.4em;
+  color: rgba(255, 226, 180, 0.75);
+  margin-bottom: 1rem;
+}
+
+.bbq-hero-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff3df;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.bbq-hero-tag {
+  display: inline-block;
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  color: #d4a853;
+  padding: 0.4rem 1.6rem;
+  border: 1px solid rgba(212, 168, 83, 0.5);
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* ---- 章节 ---- */
+.bbq-section {
+  padding: 2.2rem 1.5rem;
+  margin: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(212, 168, 83, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.bbq-h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #3a2a1a;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.bbq-h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--color-gold), #b8582a);
+}
+
+.bbq-p {
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: #5a4a38;
+}
+
+.bbq-center {
+  text-align: center;
+}
+
+/* ---- 技巧卡片 ---- */
+.bbq-tips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.tip-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: rgba(212, 168, 83, 0.06);
+  border: 1px solid rgba(212, 168, 83, 0.18);
+  border-radius: 12px;
+}
+
+.tip-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.tip-card strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #3a2a1a;
+  margin-bottom: 0.2rem;
+}
+
+.tip-card p {
+  font-size: 0.85rem;
+  color: #7a6a56;
+  line-height: 1.6;
+}
+
+/* ---- 配茶表 ---- */
+.tea-table {
+  margin-top: 1.2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 168, 83, 0.25);
+}
+
+.tea-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.8fr;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+}
+
+.tea-row + .tea-row {
+  border-top: 1px solid rgba(212, 168, 83, 0.15);
+}
+
+.tea-head {
+  background: linear-gradient(90deg, #3a2a1a, #5a3a1e);
+  color: #f5e6b8;
+  font-weight: 600;
+}
+
+.fat {
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  text-align: center;
+  width: fit-content;
+}
+
+.fat.high { background: rgba(196, 30, 58, 0.12); color: #c41e3a; }
+.fat.mid  { background: rgba(184, 134, 11, 0.14); color: #b8860b; }
+.fat.low  { background: rgba(74, 144, 217, 0.12); color: #3a7abf; }
+
+/* ---- 安全事项 ---- */
+.bbq-safety {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.safety-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid rgba(196, 30, 58, 0.4);
+  background: rgba(196, 30, 58, 0.04);
+  border-radius: 0 12px 12px 0;
+}
+
+.safety-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.safety-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #4a2a20;
+  margin-bottom: 0.2rem;
+}
+
+.safety-item p {
+  font-size: 0.85rem;
+  color: #7a6050;
+  line-height: 1.6;
+}
+
+/* ---- 老辈智慧 ---- */
+.bbq-wisdom .wisdom-line {
+  font-size: 0.98rem;
+  color: #5a4a38;
+  line-height: 2;
+}
+
+.bbq-wisdom strong {
+  color: #b8860b;
+}
+
+.bbq-motto {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  color: #c41e3a;
+  font-weight: 600;
+  padding: 1rem;
+  border: 1px dashed rgba(196, 30, 58, 0.4);
+  border-radius: 12px;
+  background: rgba(196, 30, 58, 0.04);
+}
+
+/* 移动端 */
+@media (max-width: 640px) {
+  .bbq-hero { height: 340px; }
+  .bbq-hero-title { font-size: 2rem; }
+  .bbq-tips { grid-template-columns: 1fr; }
+  .tea-row { grid-template-columns: 1fr; gap: 0.3rem; }
+  .tea-head { display: none; }
+}

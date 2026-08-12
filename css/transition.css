@@ -1,0 +1,179 @@
+/* ===== 页面转场：金印帷幕 (anime.js 驱动) ===== */
+
+.page-trans-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  pointer-events: none;
+}
+
+/* ---- 帷幕面板（半透明照片背景） ---- */
+.trans-curtain {
+  position: absolute;
+  top: 0;
+  width: 50.1%;
+  height: 100%;
+  background-image: var(--bg-photo);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/* 半透明暗色遮罩 */
+.trans-curtain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.5);
+  pointer-events: none;
+}
+
+.trans-curtain.left  { left: 0;   transform: translateX(-100%); background-position: left center; }
+.trans-curtain.right { right: 0;  transform: translateX(100%);  background-position: right center; }
+
+/* ---- 金色中线 ---- */
+.trans-glow-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(212,168,83,0.15) 15%,
+    #d4a853 45%,
+    #f5e6b8 50%,
+    #d4a853 55%,
+    rgba(212,168,83,0.15) 85%,
+    transparent 100%
+  );
+  opacity: 0;
+  box-shadow: 0 0 24px rgba(212,168,83,0.6), 0 0 60px rgba(212,168,83,0.25);
+  filter: blur(0.5px);
+}
+
+/* ---- 金印徽章（金色曼陀罗） ---- */
+.trans-seal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 140px;
+  height: 140px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 中心星芒 */
+.seal-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #f5e6b8;
+  text-shadow: 0 0 20px rgba(212,168,83,0.9), 0 0 40px rgba(212,168,83,0.5);
+  z-index: 2;
+  animation: corePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 0.8; }
+  50%      { transform: translate(-50%, -50%) scale(1.2); opacity: 1;   }
+}
+
+/* 光环层 */
+.seal-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transform: translate(-50%, -50%);
+}
+
+.seal-ring.r1 {
+  width: 130px;
+  height: 130px;
+  border-top-color: rgba(212,168,83,0.7);
+  border-right-color: rgba(212,168,83,0.3);
+  animation: ringSpin1 3s linear infinite;
+}
+
+.seal-ring.r2 {
+  width: 100px;
+  height: 100px;
+  border-bottom-color: rgba(212,168,83,0.6);
+  border-left-color: rgba(212,168,83,0.3);
+  animation: ringSpin2 2.2s linear infinite;
+}
+
+.seal-ring.r3 {
+  width: 70px;
+  height: 70px;
+  border-top-color: rgba(245,230,184,0.5);
+  border-right-color: rgba(245,230,184,0.2);
+  animation: ringSpin1 1.6s linear infinite;
+}
+
+/* 菱形框架 */
+.seal-diamond {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1.5px solid rgba(212,168,83,0.5);
+  z-index: 1;
+  animation: diamondPulse 2s ease-in-out infinite;
+}
+
+@keyframes diamondPulse {
+  0%, 100% { transform: translate(-50%, -50%) rotate(45deg) scale(1);   border-color: rgba(212,168,83,0.4); }
+  50%      { transform: translate(-50%, -50%) rotate(45deg) scale(1.15); border-color: rgba(212,168,83,0.8); }
+}
+
+@keyframes ringSpin1 {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes ringSpin2 {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to   { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* 外部辉光晕 */
+.seal-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,83,0.15) 0%, transparent 70%);
+  animation: glowBreathe 2s ease-in-out infinite;
+}
+
+@keyframes glowBreathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+  50%      { transform: translate(-50%, -50%) scale(1.3); opacity: 1;   }
+}
+
+/* ---- 粒子容器 ---- */
+.trans-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.trans-sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: #d4a853;
+  pointer-events: none;
+}

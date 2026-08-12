@@ -1,0 +1,159 @@
+/* ===== 详情页面：半透明 hero 过渡 ===== */
+
+.detail-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.detail-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  pointer-events: none;
+}
+
+.detail-header .back-btn {
+  pointer-events: auto;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.detail-header .back-btn:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ---- Hero 区域 ---- */
+.detail-hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* 半透明景区图片 */
+.detail-hero-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #d8d3cc;
+  opacity: 0.5;
+  animation: heroReveal 0.8s ease-out;
+}
+
+@keyframes heroReveal {
+  0%   { opacity: 0.15; }
+  100% { opacity: 0.5; }
+}
+
+/* 渐变遮罩：从图片过渡到正文背景 */
+.detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 15, 10, 0.25) 0%,
+    rgba(20, 15, 10, 0.05) 35%,
+    var(--color-bg, #f5f3ef) 100%
+  );
+}
+
+/* 标题与简介叠在 hero 底部 */
+.detail-hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1.5rem 1.2rem;
+  animation: contentRise 0.7s ease-out 0.25s backwards;
+}
+
+@keyframes contentRise {
+  0%   { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.detail-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.4);
+}
+
+.detail-intro {
+  color: #555;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* ---- 正文 ---- */
+.detail-content {
+  color: #444;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  padding: 1.5rem 1.5rem 0;
+  animation: contentRise 0.6s ease-out 0.45s backwards;
+}
+
+/* ---- 烧烤文化入口横幅 ---- */
+.bbq-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 1.4rem 1.5rem 0;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(74, 22, 20, 0.92), rgba(122, 42, 30, 0.9));
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: contentRise 0.6s ease-out 0.6s backwards;
+}
+
+.bbq-banner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.bbq-banner-icon {
+  font-size: 1.8rem;
+}
+
+.bbq-banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bbq-banner-text strong {
+  font-size: 1.05rem;
+  color: #f5e6b8;
+  letter-spacing: 0.05em;
+}
+
+.bbq-banner-text small {
+  font-size: 0.82rem;
+  color: rgba(255, 226, 180, 0.7);
+  margin-top: 0.2rem;
+}
+
+.bbq-banner-arrow {
+  font-size: 1.4rem;
+  color: #d4a853;
+}

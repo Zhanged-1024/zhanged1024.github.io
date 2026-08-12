@@ -1,0 +1,103 @@
+/* ===== 开幕动画 ===== */
+
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg-photo) center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease;
+}
+
+/* 半透明暗色遮罩，让照片半透明呈现 */
+#splash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.55);
+  pointer-events: none;
+}
+
+#splash.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 呼吸光晕 */
+.splash-glow {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,160,60,0.15) 0%, transparent 70%);
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.8); opacity: 0.3; }
+  50%      { transform: scale(1.4); opacity: 0.8; }
+}
+
+/* 城市名逐字 */
+.splash-chars {
+  display: flex;
+  gap: 0.35em;
+  position: relative;
+  z-index: 1;
+}
+
+.splash-chars .char {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: #d4a853;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: charRise 0.6s ease forwards;
+  text-shadow: 0 0 40px rgba(212,168,83,0.4);
+}
+
+.splash-chars .char:nth-child(1) { animation-delay: 0.5s; }
+.splash-chars .char:nth-child(2) { animation-delay: 0.7s; }
+.splash-chars .char:nth-child(3) { animation-delay: 0.9s; }
+.splash-chars .char:nth-child(4) { animation-delay: 1.1s; }
+
+@keyframes charRise {
+  0%   { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 副标题 */
+.splash-sub {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.2em;
+  opacity: 0;
+  animation: subReveal 0.8s ease 2.2s forwards;
+}
+
+@keyframes subReveal {
+  0%   { opacity: 0; letter-spacing: 0.4em; }
+  100% { opacity: 1; letter-spacing: 0.2em; }
+}
+
+/* 底部装饰线 */
+.splash-line {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,168,83,0.5), transparent);
+  animation: lineGrow 1s ease 1.6s forwards;
+}
+
+@keyframes lineGrow {
+  to { width: 180px; }
+}

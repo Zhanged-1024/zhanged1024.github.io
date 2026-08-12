@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>齐齐哈尔 · 城市文旅</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/transition.css">
+  <link rel="stylesheet" href="css/falling.css">
+  <link rel="stylesheet" href="css/border.css">
+  <link rel="stylesheet" href="css/ripple.css">
+  <style>
+    #particles-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 随机半透明背景 -->
+  <div id="home-bg"></div>
+
+  <!-- 金色粒子背景 -->
+  <div id="particles-bg"></div>
+
+  <!-- 灵动边框线 -->
+  <div class="page-border">
+    <div class="frame frame-outer"></div>
+    <div class="frame frame-inner"></div>
+    <span class="edge edge-h edge-top"></span>
+    <span class="edge edge-h edge-bottom"></span>
+    <span class="edge edge-v edge-left"></span>
+    <span class="edge edge-v edge-right"></span>
+    <span class="corner-diamond cd-tl"></span>
+    <span class="corner-diamond cd-tr"></span>
+    <span class="corner-diamond cd-bl"></span>
+    <span class="corner-diamond cd-br"></span>
+    <span class="corner-glow cg-tl"></span>
+    <span class="corner-glow cg-tr"></span>
+    <span class="corner-glow cg-bl"></span>
+    <span class="corner-glow cg-br"></span>
+    <span class="comet comet-h ch-1"></span>
+    <span class="comet comet-h ch-2"></span>
+    <span class="comet comet-h ch-3"></span>
+    <span class="comet comet-h ch-4 ch-bottom"></span>
+    <span class="comet comet-v cv-1"></span>
+    <span class="comet comet-v cv-2 cv-right"></span>
+  </div>
+
+  <!-- 页面转场帷幕 -->
+  <div id="page-trans-overlay" class="page-trans-overlay">
+    <div class="trans-curtain left"></div>
+    <div class="trans-curtain right"></div>
+    <div class="trans-glow-line"></div>
+    <div class="trans-seal">
+      <div class="seal-glow"></div>
+      <div class="seal-ring r1"></div>
+      <div class="seal-ring r2"></div>
+      <div class="seal-ring r3"></div>
+      <div class="seal-diamond"></div>
+      <div class="seal-core">✦</div>
+    </div>
+    <div class="trans-sparkles"></div>
+  </div>
+
+  <!-- 红色文旅专属照片过渡 -->
+  <div id="red-photo-overlay">
+    <div class="red-photo-bg"></div>
+    <div class="red-photo-tint"></div>
+    <div class="red-photo-text">追寻红色足迹</div>
+  </div>
+
+  <!-- 饮食文化专属照片过渡 -->
+  <div id="food-photo-overlay">
+    <div class="food-photo-bg"></div>
+    <div class="food-photo-tint"></div>
+    <div class="food-photo-text">品味鹤城美食</div>
+  </div>
+
+  <!-- ===== 开幕动画 ===== -->
+  <div id="splash">
+    <div class="splash-glow"></div>
+    <div class="splash-chars">
+      <span class="char">齐</span>
+      <span class="char">齐</span>
+      <span class="char">哈</span>
+      <span class="char">尔</span>
+    </div>
+    <p class="splash-sub">鹤城 · 欢迎您</p>
+    <div class="splash-line"></div>
+  </div>
+
+  <!-- ===== 主页（选择界面） ===== -->
+  <div id="home-page">
+    <div class="home-container">
+      <h1 class="city-title" data-aos="fade-down" data-aos-duration="800">齐齐哈尔</h1>
+      <p class="subtitle" data-aos="fade-down" data-aos-delay="150" data-aos-duration="700">请选择探索方向</p>
+
+      <div class="choice-grid">
+        <button id="btn-red" class="choice-card red" data-aos="zoom-in-up" data-aos-delay="100" data-aos-duration="700">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <span class="card-icon">🚩</span>
+              <span class="card-label">红色文化旅游</span>
+              <span class="card-hint">追寻红色足迹</span>
+            </div>
+            <div class="card-face card-back">
+              <span class="card-back-icon">🚩</span>
+              <span class="card-back-label">红色文化旅游</span>
+              <span class="card-back-desc">追寻红色足迹<br>重温江桥抗战<br>探访百年古苑</span>
+              <span class="card-back-cta">进入探索 →</span>
+            </div>
+          </div>
+        </button>
+        <button id="btn-food" class="choice-card food" data-aos="zoom-in-up" data-aos-delay="250" data-aos-duration="700">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <span class="card-icon">🍖</span>
+              <span class="card-label">城市饮食文化</span>
+              <span class="card-hint">品味鹤城美食</span>
+            </div>
+            <div class="card-face card-back">
+              <span class="card-back-icon">🍖</span>
+              <span class="card-back-label">城市饮食文化</span>
+              <span class="card-back-desc">品味鹤城美食<br>炭火大片肉<br>地道烤肉名店</span>
+              <span class="card-back-cta">进入探索 →</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/animation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/transition.js"></script>
+  <!-- 照片飘落装饰 -->
+  <script src="js/falling-photos.js"></script>
+  <script src="js/falling-effect.js"></script>
+  <!-- 鼠标涟漪 -->
+  <script src="js/ripple.js"></script>
+  <!-- 以下为可选增强特效，加载失败不影响核心功能 -->
+  <script>
+    // particles.js 安全加载
+    (function () {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
+      s.onload = function () {
+        if (typeof particlesJS !== 'undefined') {
+          particlesJS('particles-bg', {
+            particles: {
+              number: { value: 35, density: { enable: true, value_area: 1000 } },
+              color: { value: '#d4a853' },
+              shape: { type: 'circle' },
+              opacity: { value: 0.35, random: true, anim: { enable: true, speed: 0.4, opacity_min: 0.1, sync: false } },
+              size: { value: 3, random: true, anim: { enable: true, speed: 1.5, size_min: 0.5, sync: false } },
+              line_linked: { enable: true, distance: 160, color: '#d4a853', opacity: 0.12, width: 0.8 },
+              move: { enable: true, speed: 0.6, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
+            },
+            interactivity: {
+              detect_on: 'canvas',
+              events: { onhover: { enable: true, mode: 'bubble' }, resize: true },
+              modes: { bubble: { distance: 180, size: 6, duration: 1.5, opacity: 0.5, speed: 2 } }
+            },
+            retina_detect: true
+          });
+        }
+      };
+      document.head.appendChild(s);
+    })();
+
+    // AOS 安全加载
+    (function () {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/aos@2.3.1/dist/aos.css';
+      document.head.appendChild(link);
+
+      var s = document.createElement('script');
+      s.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+      s.onload = function () {
+        if (typeof AOS !== 'undefined') AOS.init({ once: true });
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
